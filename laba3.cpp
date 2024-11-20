@@ -34,39 +34,41 @@ int main() {
     }
 
     //================выбираем функцию====================
-    int out = 1;
+    int out;
+    out << 1;
     while (out > 0){
-    std::cout << "Выберите функцию: \n 1)средняя цена \n 2) среднее количество Гб \n 3) редактировать тариф \n 4) сохранить в новый файл \n 5) выход";
-    int f; std::cin >> f;
-    if (f = 1){
-      std::cout << (m1[0].price+m1[1].price+m1[2].price+m1[3].price);
+    std::cout << "\nВыберите функцию: \n 1) средняя цена \n 2) среднее количество Гб \n 3) редактировать тариф \n 4) сохранить в новый файл \n 5) выход \n";
+    int f;
+    std::cin >> f;
+    if (f == 1){
+      std::cout << ((m1[0].price + m1[1].price + m1[2].price + m1[3].price)/4.0);
     }
-    if (f = 2){
-      std::cout << (m1[0].gig+m1[1].gig+m1[2].gig+m1[3].gig);
+    else if (f == 2){
+      std::cout << ((m1[0].gig+m1[1].gig+m1[2].gig+m1[3].gig)/4.0);
     }
-    if (f = 1){
+    else if (f == 3){
       
         //================редактируем====================
     std::cout << "Введите номер тарифа для изменения данных: \n";
     int a;
     int b;
     std::cin >> a;
-    std::cout << "Какие данные изменить?";
+    std::cout << "Какие данные изменить? \n";
     std::cout << "1) Название : "
      << m1[a-1].name << std::endl << "2) Плата: "
      << m1[a-1].price << std::endl << "3) Гб: "
      << m1[a-1].gig << "" << std::endl;
     std::cout << "Введите номер" << std::endl;
     std::cin >> b;
-    if (b = 1){
-        std::cout << "Введите другое название (в кавычках)" << std::endl;
+    if (b == 1){
+        std::cout << "Введите другое название (желательно в кавычках)" << std::endl;
         std::cin >> m1[a-1].name;
     }
-    if (b = 2){
+    else if (b == 2){
         std::cout << "Введите цену" << std::endl;
         std::cin >> m1[a-1].price;
     }
-    if (b = 3){
+    else if (b == 3){
         std::cout << "Введите Гб" << std::endl;
         std::cin >> m1[a-1].gig;
     }
@@ -76,24 +78,24 @@ int main() {
 
     }
     //=====================вывод=========================
-    if (f = 4){
-      std::ofstream fout;
-      std::string fName;
-      std::cout << "Введите имя файла: ";
-      std::getline(std::cin, fName);
+    else if (f == 4){
+      std::string filename;
+      std::cout << "Введите название файла: ";
+      std::cin >> filename;
+      std::ofstream outf(filename);
       for (int i = 0; i < 4; ++i)
-        fout << m1[i].id << "\n" << m1[i].name << "\n" << m1[i].price << "\n" << m1[i].gig << "\n";
-      fout.close();
+        outf << m1[i].id << "\n" << m1[i].name << "\n" << m1[i].price << "\n" << m1[i].gig << "\n";
+      outf.close();
     }
-    if (f = 5){
-      out = 0;
+    else if (f == 5){
+      out == 0;
       return 0;
+    }
+    f == 0;
     }
     fin.close();
     delete[] m1;
     m1 = NULL;
-    }
-    
 
 
 
