@@ -96,22 +96,8 @@ int main() {
     fin.close();
     delete[] m1;
     m1 = NULL;
-
-
-
-
   }
-  
   else
   std::cout << "НЕТ ФАЙЛА НЕТУ ОТСУТСТВУЕТ";
-  
-    
-
-  //вывод в новый файл
-  //std::ofstream file1;
-  //file1.open("file1.txt");
-  //for (int i = 0; i <10; ++i)
-    //file1 << i << "\n";
-  //fin.close();
   return 0;
 }
